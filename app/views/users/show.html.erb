@@ -1,0 +1,38 @@
+
+    <div class="profile_logo">
+        <%= @user.name %>  <%= @user.age %><br>
+    </div>
+    <div>
+    <div class="sidebar">
+    <% if @groups.present? %>
+        <h5>Your groups</h5>
+        
+        <% @groups.each do |group| %>
+        <ol>
+        <li><%= group.name %><br></li>
+        </ol>
+        <% end %>
+        <%= button_to "Join another group", '/groups', :method => :get %>
+    <% else %>
+        <%= button_to "Join a group", '/groups', :method => :get %>
+    <% end %>
+    </div>
+
+    <div class="main_page">
+        <% @posts.each do |post| %>
+            <div class="postOne">
+            <%= post.user.name %><br>
+            </div>
+            <div class="postTwo">
+            <%= post.group.name %><br>
+            </div>
+            <div class="postThree">
+            <%= post.title %><br>
+            </div>
+            <div class="postFour">
+            <%= post.content %>
+            </div>
+        <% end %>
+    </div>
+
+
