@@ -29,8 +29,16 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         @groups = @user.groups
         cookies[:user_id] = @user.id
-        @posts = @user.posts
-        
+        @posts = post_of_group
        
     end
+    private
+    def post_of_group
+        @user = User.find(cookies[:user_id])
+        @groups = @user.groups
+        @posts = []
+        @groups.each{|group| group.posts.each{|post| @posts << post} } 
+        @posts
+    end
+   
 end

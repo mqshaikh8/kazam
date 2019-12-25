@@ -8,9 +8,9 @@
         <h5>Your groups</h5>
         
         <% @groups.each do |group| %>
-        <ol>
+        <ul>
         <li><%= group.name %><br></li>
-        </ol>
+        </ul>
         <% end %>
         <%= button_to "Join another group", '/groups', :method => :get %>
     <% else %>
@@ -19,19 +19,13 @@
     </div>
 
     <div class="main_page">
+        <%= button_to "Post", new_post_path, :method => :get %>
         <% @posts.each do |post| %>
-            <div class="postOne">
-            <%= post.user.name %><br>
-            </div>
-            <div class="postTwo">
-            <%= post.group.name %><br>
-            </div>
-            <div class="postThree">
-            <%= post.title %><br>
-            </div>
-            <div class="postFour">
-            <%= post.content %>
-            </div>
+            <div>
+            <p><b><%= post.user.name %></b> posted in <b><%= post.group.name%></b> at <%=post.created_at     %> <br/>
+            <%= post.content%><p> 
+            <br><%= button_to "Delete a post", "/posts/#{post.id}", :method => :delete %>
+            </div> 
         <% end %>
     </div>
 
