@@ -1,9 +1,11 @@
+<div class="loginAlignment">
 <%= form_for @user do |f| %>
-<%= f.label :name  %>
+<%= f.label :name  %><br>
 <%= f.text_field :name %><br>
-<%= f.label :age  %>
+<%= f.label :age  %><br>
 <%= f.text_field :age %><br>
-<%= f.label :password  %>
+<%= f.label :password  %><br>
 <%= f.text_field :password %><br>
-<%= f.submit %>
+<%= f.submit , :class "login_s_submit"  %>
 <% end %>
+</div>

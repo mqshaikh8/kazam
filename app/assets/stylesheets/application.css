@@ -14,10 +14,20 @@
  *= require_self
  */
  .allPages{
-     background-color:gold;
+     background-color:rgb(255, 255, 255);
+    
+     border: 10px solid rgb(92, 226, 215);
  }
  .Logo{
-     margin-left: 35%;
+     margin-left: 40.49%;
+ }
+ .loginAlignment{
+    text-align: center;
+    font-size: x-large;
+ }
+ .login_s_submit{
+     width:100px;
+     height: 100px;
  }
  .signupHalf {
      width: 100%
@@ -31,9 +41,11 @@
  }
 #portal_buttons{
     display: inline-block;
-    width:20%;
-    color:gold;
-    background-color:silver;
+    width:200px;
+    height:80px;
+    color:rgb(255, 255, 255);
+    background-color:rgb(92, 226, 215);
+    font-size: large;
 }
 .sidebar{
     display: inline-block;
@@ -41,7 +53,7 @@
 .main_page{
     display: inline-block;
     margin-left: 20%;
-    background-color:yellow;
+    
 }
 .postOne{
     display: inline-block;
