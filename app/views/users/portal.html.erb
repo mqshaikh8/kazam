@@ -7,13 +7,17 @@
   <div>
     <h1 class ="Logo">Welcome to Kazam</h1>
     <div class = "signupHalf">
-      <form class="portal_button_form" method="get" action="/signup">
-        <input id="portal_buttons" type="submit" value="Sign Up">
-      </form>
+    <%if cookies[:user_id] == "0" %>
+     <%=button_to "Sign Up", signup_path, :method => :get, class: 'f_submit' %>
+        <br>
+      <%=button_to "Login", login_path, :method => :get, class: 'f_submit' %>
+      
+    <%else %>
+      <%=button_to "Sign Up", "/users/#{cookies[:user_id]}", :method => :get, class: 'f_submit' %>
       <br>
-      <form class="portal_button_form" method="get" action="/login">
-        <input id="portal_buttons" type="submit" value="Login">
-      </form>
+      <%=button_to "Login", "/users/#{cookies[:user_id]}", :method => :get, class: 'f_submit' %>
+      <br>
+      <% end %>
     </div>
 
   </div>

@@ -1,15 +1,16 @@
 <div class="loginAlignment">
 <%= form_tag verifier_path do %>
-  <label>Name</label><br>
-  <%= text_field_tag :'name' %><br>
+  <label>Username</label><br>
+  <%= text_field_tag :'username' %><br>
  <br>
   <label>Password</label><br>
-  <%= text_field_tag :'password' %><br>
+  <%= text_field_tag :'password'%><br>
   <br>
  
-  <%= submit_tag "Login" %>
+  <%= submit_tag "Login", class: 'f_submit' %>
 <% end %>
-
+<br>
+<%=button_to "Go Back", portal_path, :method => :get, class: 'f_submit' %>
 <% if @errors %>
   <%= @errors %>
   <% end %>

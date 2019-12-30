@@ -2,5 +2,11 @@
 <%= f.label :content  %>
 <%= f.text_field :content %><br>
 <%= collection_select(:group, :group_id, @groups, :id, :name)%><br>
-<%= f.submit %>
+<%= f.submit nil, class: 'f_submit'  %>
+<% end %>
+<br>
+<br>
+<%= button_to "Go Back", user_path(cookies[:user_id]), :method => :get, class: 'f_submit' %>
+<% if @errors %>
+  <%= @errors %>
 <% end %>

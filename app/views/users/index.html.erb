@@ -1,0 +1,10 @@
+<h1>Members</h1>
+<% if @all_users %>
+    <% @all_users.each do |user|%>
+    <ul>
+        <li><%=link_to user.name, "/profile/#{user.id}" %></li>
+    </ul>
+    <% end %>
+<% else %>
+    <p>Shut up</p>
+<% end %>

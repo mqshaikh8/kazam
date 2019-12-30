@@ -1,32 +1,52 @@
-
-    <div class="profile_logo">
-        <%= @user.name %>  <%= @user.age %><br>
-    </div>
-    <div>
+<div class="feed_page">
     <div class="sidebar">
+        <%=link_to @user.name, "/profile/#{@user.id}" %>
+        <%= button_to "Log Out", "/signout", :method => :post, class: 'log_out'  %><br>
     <% if @groups.present? %>
         <h5>Your groups</h5>
         
         <% @groups.each do |group| %>
         <ul>
-        <li><%= group.name %><br></li>
+        <li><%= link_to group.name,group_path(group) %><br></li>
         </ul>
         <% end %>
-        <%= button_to "Join another group", '/groups', :method => :get %>
+        <%= button_to "Join another group", '/groups', :method => :get, class: 'group_creation_button'  %>
     <% else %>
-        <%= button_to "Join a group", '/groups', :method => :get %>
+        <%= button_to "Join a group", '/groups', :method => :get, class: 'f_submit'  %>
     <% end %>
+    <h5>followers</h5>
+    <% if @followers.present? %>
+        <% @followers.each do |follower| %>
+        <ul>
+        <li><%= link_to follower.name, "/profile/#{follower.id}" %><br></li>
+        </ul>
+        <% end %>
+        <% else %>
+        <h5>0 Followers</h5>
+    <% end %>
+    <h5>Following</h5>
+    <% if @followees.present? %>
+        <% @followees.each do |followee| %>
+        <ul>
+        <li><%= link_to followee.name, "/profile/#{followee.id}" %><br></li>
+        </ul>
+        <% end %>
+        <% else %>
+        <h5>0 People following</h5>
+    <% end %>
+        <%= button_to "Friends", "/users", :method => :get, class: 'log_out'  %>
     </div>
 
     <div class="main_page">
-        <%= button_to "Post", new_post_path, :method => :get %>
+        <%= button_to "Post", new_post_path, :method => :get, class: 'f_submit'  %>
         <% @posts.each do |post| %>
             <div>
-            <p><b><%= post.user.name %></b> posted in <b><%= post.group.name%></b> at <%=post.created_at     %> <br/>
+            <p><b><%= post.user.name %></b> posted in <b><%= post.group.name%></b> at <%=post.created_at%><br/>
             <%= post.content%><p> 
-            <br><%= button_to "Delete a post", "/posts/#{post.id}", :method => :delete %>
-            </div> 
+            <% if post.user == @user %>
+                <%= button_to "Delete a post", "/posts/#{post.id}", :method => :delete, class: 'f_submit'  %>
+            <% end %>
         <% end %>
     </div>
-
+</div>
 

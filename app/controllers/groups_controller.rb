@@ -2,7 +2,6 @@
 class GroupsController < ApplicationController
     
     def index
-        @prompt = TTY::Prompt.new
 
         @groups = Group.all - User.find(cookies[:user_id]).groups
     end
@@ -18,6 +17,18 @@ class GroupsController < ApplicationController
     end
     def new
         @group = Group.new
+    end
+    def show
+        @group = Group.find(params[:id])
+        @posts = @group.posts
+        @users = @group.users
+    end
+    def destroy
+        user = User.find(cookies[:user_id])
+        group = Group.find(params[:id])
+        connection = Connection.find_by(user:user,group:group)
+        connection.destroy
+        redirect_to user_path(user.id)
     end
     
 end

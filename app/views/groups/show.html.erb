@@ -1,0 +1,13 @@
+<div class="group_show_page">
+<h1>The Page of the <%= @group.name %> group</h1>
+<%=@group.description %>
+<br>
+<h3>Members</h3>
+<% @users.each do |user| %>
+<ul>
+  <li><%=link_to user.name,"/profile/#{user.id}"  %></li>
+</ul>
+    <% end %>
+<div>
+<%= button_to "Abandon Group", "/groups/#{@group.id}", :method => :delete, class: 'f_submit'  %>
+<%= button_to "Go Back", '/groups', :method => :get, class: 'f_submit'  %>

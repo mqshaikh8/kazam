@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   post '/loginverifier', to: "users#loginverifier", :as => 'verifier'
   post '/groups/:id', to: "groups#connection"
   delete '/users/posts/:id', to: "users#post_destroy"
+  post '/signout', to: "users#signout"
+  get '/profile/:id', to: "users#profile"
+  post '/follower/:id', to: "users#follower"
+  post '/delete/:id', to: "users#delete_follower"
   resources :posts
   resources :users
   resources :groups

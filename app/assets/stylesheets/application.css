@@ -15,23 +15,43 @@
  */
  .allPages{
      background-color:rgb(255, 255, 255);
-    
      border: 10px solid rgb(92, 226, 215);
+     animation: 2s ease-out 0s 1 slideInFromLeft;
  }
  .Logo{
-     margin-left: 40.49%;
+     text-align: center;
+     animation: 2s ease-out 0s 1 slideInFromLeft;
  }
  .loginAlignment{
     text-align: center;
     font-size: x-large;
  }
- .login_s_submit{
-     width:100px;
-     height: 100px;
+ .f_submit{
+    width:100px;
+    height: 50px;
+    color:rgb(255, 255, 255);
+    background-color:rgb(92, 226, 215);
+    animation: 2s ease-in-out 0s 999 buttonColorChange;
+ }
+
+ .group_creation_button{
+    width:175px;
+    height: 30px;
+    color:rgb(255, 255, 255);
+    background-color:rgb(92, 226, 215);
+    animation: 2s ease-in-out 0s 999 buttonColorChange;
  }
  .signupHalf {
-     width: 100%
+     width: 100%;
+     text-align:center 
  }
+ .log_out{
+     width: 60px;
+     height: 20px;
+     color:rgb(255, 255, 255);
+     background-color:rgb(92, 226, 215);
+     animation: 2s ease-in-out 0s 999 buttonColorChange;
+ }  
  .portal_button_form{
     display: inline-block;
     display: flex;
@@ -46,14 +66,20 @@
     color:rgb(255, 255, 255);
     background-color:rgb(92, 226, 215);
     font-size: large;
+    animation: 2s ease-in-out 0s 999 buttonColorChange;
 }
 .sidebar{
-    display: inline-block;
+    display: flex;
+    display: inline-table;
 }
 .main_page{
-    display: inline-block;
-    margin-left: 20%;
+    display: flex;
+    display: inline-table;
+    margin-left: 10%;
     
+}
+.feed_page{
+    display: flex;
 }
 .postOne{
     display: inline-block;
@@ -64,14 +90,39 @@
     display: inline-block;
     margin-left: 40px;
 }
-.postThree{
-    
-    margin-left: 45%;
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-150%);
+        color: green;
+    }
+    50% {
+        color: purple;
+    }
+    100% {
+        transform: translateX(0);
+        color: black;
+    }
 }
-.postThree{
-    
-    margin-left: 45%;
+
+.group_show_page{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    animation: 2s ease-out 0s 1 slideInFromLeft;
 }
-.postFour{
+
+@keyframes buttonColorChange {
+    0% {
+        background-color: lawngreen;
+    }
+    50% {
+        background-color: purple;
+    }
+    100% {
+        background-color: rgb(92, 226, 215);
+    }
+}
+.profile{
     text-align: center;
 }

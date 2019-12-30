@@ -1,0 +1,16 @@
+<div class="profile">
+<h4>Username:</h4><%= @user.username %>
+<h4>Name:</h4><%= @user.name %><br>
+<h4>Age:</h4><%= @user.age %><br>
+<h4>Location:</h4><%= @user.location%>
+<%=button_to "Go Back", user_path(@main_user.id), :method => :get, class: 'f_submit' %>
+<% if @user != @main_user && @followees.exclude?(@user) %>
+    <%=button_to "Follow", "/follower/#{@user.id}", :method => :post, class: 'f_submit' %>
+<% end %>
+<% if @followees.include?(@user) %>
+        <%=button_to "Unfollow", "/delete/#{@user.id}", :method => :post, class: 'f_submit' %>
+<% end %>
+<% if @user == @main_user %>
+ <%=button_to "Edit", edit_user_path(@user), :method => :get, class: 'f_submit' %>
+<% end %> 
+</div>
